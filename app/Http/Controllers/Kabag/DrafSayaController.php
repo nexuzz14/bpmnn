@@ -103,21 +103,21 @@ class DrafSayaController extends Controller
                     'dibuat_oleh'    => auth()->id()
                 ]);
 
-                $kasubtim = \App\Models\User::where('role', 'kepala_sub_tim')->first();
+                $kabiro = \App\Models\User::where('role', 'kepala_biro')->first();
 
-                // Buat Reviu Tingkat 1 (Kasubtim)
+                // Buat Reviu Tingkat Final (Kabiro)
                 ReviuSurat::create([
                     'draf_surat_id' => $draf->id,
-                    'tingkat'       => '1',
+                    'tingkat'       => 'final',
                     'status'        => 'menunggu',
-                    'reviewer_id'   => $kasubtim ? $kasubtim->id : null
+                    'reviewer_id'   => $kabiro ? $kabiro->id : null
                 ]);
 
-                if ($kasubtim) {
-                    $kasubtim->notify(new \App\Notifications\SuratNotification(
-                        'Review Tingkat 1',
-                        "Kabag telah mengunggah draf surat baru dan meminta review teknis Anda.",
-                        route('kasubtim.review.index')
+                if ($kabiro) {
+                    $kabiro->notify(new \App\Notifications\SuratNotification(
+                        'Persetujuan Final Draf',
+                        "Kabag telah mengunggah draf surat baru dan menunggu persetujuan akhir.",
+                        route('kabiro.review-final.index')
                     ));
                 }
             });
@@ -178,14 +178,14 @@ class DrafSayaController extends Controller
                 'status' => 'menunggu_reviu' // Reset status
             ]);
 
-            $kasubtim = \App\Models\User::where('role', 'kepala_sub_tim')->first();
+            $kabiro = \App\Models\User::where('role', 'kepala_biro')->first();
 
-            // Buat Reviu Tingkat 1 (Kasubtim)
+            // Buat Reviu Tingkat Final (Kabiro)
             \App\Models\ReviuSurat::create([
                 'draf_surat_id' => $drafSurat->id,
-                'tingkat'       => '1',
+                'tingkat'       => 'final',
                 'status' => 'menunggu',
-                'reviewer_id' => $kasubtim ? $kasubtim->id : null
+                'reviewer_id' => $kabiro ? $kabiro->id : null
             ]);
         });
 
