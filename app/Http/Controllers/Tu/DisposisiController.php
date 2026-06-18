@@ -42,7 +42,7 @@ class DisposisiController extends Controller
             'nomor_agenda' => ['nullable', 'string', 'max:255'],
             'catatan' => ['nullable', 'string'],
             'prioritas' => ['nullable', 'string', 'in:biasa,segera,sangat_segera'],
-            'file_surat' => ['nullable', 'file', 'mimes:pdf', 'max:10240'],
+            'file_surat' => ['nullable', 'file', 'mimes:pdf', 'max:2048'],
         ]);
 
         DB::transaction(function() use ($request, $validated, $suratMasuk) {

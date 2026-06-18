@@ -29,7 +29,7 @@ class UploadTtdController extends Controller
     public function store(Request $request, DrafSurat $drafSurat)
     {
         $validated = $request->validate([
-            'file_final' => ['required', 'file', 'mimes:pdf', 'max:10240'], // Max 10MB for scan
+            'file_final' => ['required', 'file', 'mimes:pdf', 'max:2048'], // Max 10MB for scan
             'nomor_surat_final' => ['required', 'string', 'max:255']
         ]);
 

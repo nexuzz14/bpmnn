@@ -19,7 +19,7 @@ class TemplateSuratController extends Controller
     {
         $request->validate([
             'nama_template' => 'required|string|max:255',
-            'file_template' => 'required|file|mimes:doc,docx,rtf|max:10240',
+            'file_template' => 'required|file|mimes:doc,docx,rtf|max:2048',
         ]);
 
         $path = $request->file('file_template')->store('templates', 'public');

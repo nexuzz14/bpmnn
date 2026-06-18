@@ -89,7 +89,7 @@ class DrafSayaController extends Controller
     {
         $validated = $request->validate([
             'surat_masuk_id' => ['required', 'exists:surat_masuks,id'],
-            'file_draf'      => ['required', 'file', 'mimes:pdf,doc,docx', 'max:10240'],
+            'file_draf'      => ['required', 'file', 'mimes:pdf,doc,docx', 'max:2048'],
         ]);
 
         try {
@@ -134,7 +134,7 @@ class DrafSayaController extends Controller
 
     public function show(DrafSurat $drafSurat)
     {
-        abort_if($drafSurat->dibuat_oleh !== auth()->id(), 403, 'Anda tidak diizinkan mengakses draft ini.');
+        abort_if($drafSurat->dibuat_oleh != auth()->id(), 403, 'Anda tidak diizinkan mengakses draft ini.');
 
         $drafSurat->load(['suratMasuk', 'reviuSurat' => function($q) {
             $q->orderBy('created_at', 'asc');
@@ -152,17 +152,17 @@ class DrafSayaController extends Controller
 
     public function edit(DrafSurat $drafSurat)
     {
-        abort_if($drafSurat->dibuat_oleh !== auth()->id(), 403, 'Anda tidak diizinkan mengubah draft ini.');
+        abort_if($drafSurat->dibuat_oleh != auth()->id(), 403, 'Anda tidak diizinkan mengubah draft ini.');
 
         return view('kasubtim.draf-saya.edit', compact('drafSurat'));
     }
 
     public function update(Request $request, DrafSurat $drafSurat)
     {
-        abort_if($drafSurat->dibuat_oleh !== auth()->id(), 403, 'Anda tidak diizinkan memperbarui draft ini.');
+        abort_if($drafSurat->dibuat_oleh != auth()->id(), 403, 'Anda tidak diizinkan memperbarui draft ini.');
 
         $validated = $request->validate([
-            'file_draf' => ['required', 'file', 'mimes:pdf', 'max:5120'],
+            'file_draf' => ['required', 'file', 'mimes:pdf', 'max:2048'],
         ]);
 
         DB::transaction(function() use ($request, $drafSurat) {
@@ -194,7 +194,7 @@ class DrafSayaController extends Controller
 
     public function destroy(DrafSurat $drafSurat)
     {
-        abort_if($drafSurat->dibuat_oleh !== auth()->id(), 403, 'Anda tidak diizinkan menghapus draft ini.');
+        abort_if($drafSurat->dibuat_oleh != auth()->id(), 403, 'Anda tidak diizinkan menghapus draft ini.');
 
         // Only allow deletion if it hasn't been approved or is not done
         if ($drafSurat->status === 'selesai' || $drafSurat->reviuSurat()->where('status', 'disetujui')->exists()) {

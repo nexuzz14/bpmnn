@@ -76,7 +76,7 @@
                             <input type="file" name="file_draf" id="file_draf" accept=".pdf" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="document.getElementById('file-name').textContent = this.files[0].name">
                             <i class="ph ph-file-pdf text-5xl text-gray-400 mb-4 block"></i>
                             <p class="text-base font-medium text-gray-900 mb-1">Pilih file PDF draf hasil revisi</p>
-                            <p class="text-sm text-gray-500">Atau seret dan lepas file ke area ini (Maks. 5MB)</p>
+                            <p class="text-sm text-gray-500">Atau seret dan lepas file ke area ini (Maks. 2MB)</p>
                             <p id="file-name" class="mt-4 text-sm font-bold text-[#701a35]"></p>
                         </div>
                         @error('file_draf')

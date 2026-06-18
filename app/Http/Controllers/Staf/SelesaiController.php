@@ -62,7 +62,7 @@ class SelesaiController extends Controller
             $q->orderBy('created_at', 'asc');
         }])->findOrFail($id);
         
-        abort_if($drafSurat->dibuat_oleh !== auth()->id(), 403, 'Anda tidak diizinkan mengakses surat ini.');
+        abort_if($drafSurat->dibuat_oleh != auth()->id(), 403, 'Anda tidak diizinkan mengakses surat ini.');
         
         return view('staf.selesai.show', compact('drafSurat'));
     }

@@ -45,7 +45,7 @@ class SuratMasukController extends Controller
             'perihal' => ['required', 'string', 'max:255'],
             'sifat' => ['required', 'in:segera,biasa'],
             'jenis_surat' => ['required', 'in:fisik,digital'],
-            'file_surat' => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:10240'], // Max 10MB PDF/Word
+            'file_surat' => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:2048'], // Max 10MB PDF/Word
             'keterangan' => ['nullable', 'string'],
         ]);
 
@@ -87,7 +87,7 @@ class SuratMasukController extends Controller
             'perihal' => ['required', 'string', 'max:255'],
             'sifat' => ['required', 'in:segera,biasa'],
             'jenis_surat' => ['required', 'in:fisik,digital'],
-            'file_surat' => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:10240'],
+            'file_surat' => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:2048'],
             'keterangan' => ['nullable', 'string'],
         ]);
 

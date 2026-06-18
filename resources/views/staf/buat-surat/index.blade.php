@@ -5,7 +5,7 @@
     </div>
 
     @if($disposisi)
-    <div class="bg-[#fefce8] border border-[#fef08a] rounded-xl p-5 mb-8 shadow-sm">
+    <div class="bg-[#fefce8] border border-[#fef08a] rounded-xl p-2 MB-8 shadow-sm">
         <div class="mb-2">
             <span class="font-bold text-[#92400e]">Disposisi Terpilih dari {{ $disposisi->pengirim->name ?? 'Kasubtim' }}</span>
         </div>
@@ -14,7 +14,7 @@
         </div>
     </div>
     @else
-    <div class="bg-red-50 border border-red-200 rounded-xl p-5 mb-8 shadow-sm">
+    <div class="bg-red-50 border border-red-200 rounded-xl p-2 MB-8 shadow-sm">
         <div class="mb-2">
             <span class="font-bold text-red-800"><i class="ph ph-warning-circle"></i> Tidak Ada Tugas Disposisi Aktif</span>
         </div>

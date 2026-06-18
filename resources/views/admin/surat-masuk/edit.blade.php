@@ -119,7 +119,7 @@
                         <button type="button" id="file-btn" class="px-4 py-2 bg-white border border-[#055a40] text-[#055a40] font-medium text-sm rounded-lg shadow-sm hover:bg-green-50 pointer-events-none">
                             Pilih File Baru
                         </button>
-                        <p class="text-xs text-gray-400 mt-3">PDF / Word maks. 10 MB</p>
+                        <p class="text-xs text-gray-400 mt-3">PDF / Word maks. 2 MB</p>
                         <input type="file" name="file_surat" id="file_surat" accept=".pdf,.doc,.docx" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="if(this.files.length) { document.getElementById('file-name-display').innerHTML = '<span class=\'font-bold text-[#055a40] text-base\'>📄 File Terpilih:</span><br><span class=\'text-gray-800 mt-1 block\'>' + this.files[0].name + '</span>'; document.getElementById('file-btn').innerText = 'Ganti File'; document.getElementById('file-btn').className = 'px-4 py-2 bg-[#055a40] text-white font-medium text-sm rounded-lg shadow-sm pointer-events-none mt-2'; }">
                     </div>
                     @error('file_surat') <p class="text-red-500 text-xs">{{ $message }}</p> @enderror

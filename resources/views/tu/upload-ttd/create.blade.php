@@ -49,7 +49,7 @@
                                     <input id="file_final" name="file_final" type="file" class="sr-only" accept="application/pdf" required>
                                 </label>
                             </div>
-                            <p class="text-xs text-gray-400">PDF scan maks. 10 MB</p>
+                            <p class="text-xs text-gray-400">PDF scan maks. 2 MB</p>
                             <p class="text-sm text-gray-700 font-medium mt-2" id="file-name-display"></p>
                         </div>
                     </div>

@@ -8,7 +8,7 @@
     </div>
 
     <!-- Info Disposisi -->
-    <div class="bg-[#fefce8] border-l-4 border-[#701a35] rounded-r-xl p-5 mb-6 shadow-sm">
+    <div class="bg-[#fefce8] border-l-4 border-[#701a35] rounded-r-xl p-2 MB-6 shadow-sm">
         <div class="mb-1">
             <span class="font-bold text-[#92400e]">Disposisi dari: {{ $disposisi->pengirim->name ?? 'Kasubtim' }}</span>
         </div>
@@ -123,7 +123,7 @@
                         <span class="inline-flex px-4 py-2 bg-white border border-gray-300 text-[#701a35] font-bold rounded-lg text-sm shadow-sm pointer-events-none mb-3">
                             Pilih File
                         </span>
-                        <p class="text-xs text-gray-500">PDF/DOCX maks. 10 MB</p>
+                        <p class="text-xs text-gray-500">PDF/DOCX maks. 2 MB</p>
                         <p id="file-name" class="mt-4 text-sm font-bold text-[#701a35]"></p>
                     </div>
                     @error('file_draf')

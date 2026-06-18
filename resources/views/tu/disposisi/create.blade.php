@@ -5,7 +5,7 @@
     </div>
 
     <!-- Informasi Surat (Blue Banner) -->
-    <div class="bg-[#f0f9ff] border-l-4 border-[#0284c7] rounded-r-xl p-5 mb-8">
+    <div class="bg-[#f0f9ff] border-l-4 border-[#0284c7] rounded-r-xl p-2 MB-8">
         <p class="font-bold text-gray-900 mb-1">Nomor: {{ $suratMasuk->nomor_surat }}</p>
         <p class="text-gray-600 text-sm mb-1">Perihal: {{ $suratMasuk->perihal }}</p>
         <p class="text-gray-600 text-sm">Pengirim: {{ $suratMasuk->asal_surat }}</p>
@@ -33,7 +33,7 @@
                                 </div>
                             @endif
                             <input type="file" name="file_surat" id="file_surat" accept=".pdf" class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 file:mr-4 file:rounded-md file:border-0 file:bg-[#f0f9ff] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-[#0284c7] hover:file:bg-[#e0f2fe] focus:border-[#0284c7] focus:ring-[#0284c7] transition-all">
-                            <p class="text-xs text-gray-500 mt-1">Format yang didukung: PDF. Maksimal ukuran: 10MB.</p>
+                            <p class="text-xs text-gray-500 mt-1">Format yang didukung: PDF. Maksimal ukuran: 2MB.</p>
                             @error('file_surat') <p class="text-red-500 text-xs">{{ $message }}</p> @enderror
                         </div>
                         <div class="space-y-2">

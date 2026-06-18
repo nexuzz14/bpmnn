@@ -6,7 +6,7 @@
 
     <!-- Alert Box -->
     @if($suratMasuks->count() > 0)
-    <div class="bg-[#fef3c7] border-l-4 border-[#f59e0b] rounded-r-xl p-5 mb-8">
+    <div class="bg-[#fef3c7] border-l-4 border-[#f59e0b] rounded-r-xl p-2 MB-8">
         <p class="font-bold text-[#b45309] text-lg mb-1">{{ $suratMasuks->total() }} surat menunggu untuk diproses</p>
         <p class="text-[#b45309]">Segera catat agenda dan buat disposisi ke Kepala Bagian terkait</p>
     </div>
