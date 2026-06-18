@@ -103,21 +103,21 @@ class DrafSayaController extends Controller
                     'dibuat_oleh'    => auth()->id()
                 ]);
 
-                $kabiro = \App\Models\User::where('role', 'kepala_biro')->first();
+                $kasubtim = \App\Models\User::where('role', 'kepala_sub_tim')->first();
 
-                // Buat Reviu Tingkat 2 (Kabiro)
+                // Buat Reviu Tingkat 1 (Kasubtim)
                 ReviuSurat::create([
                     'draf_surat_id' => $draf->id,
-                    'tingkat'       => 'final',
+                    'tingkat'       => '1',
                     'status'        => 'menunggu',
-                    'reviewer_id'   => $kabiro->id
+                    'reviewer_id'   => $kasubtim ? $kasubtim->id : null
                 ]);
 
-                if ($kabiro) {
-                    $kabiro->notify(new \App\Notifications\SuratNotification(
-                        'Persetujuan Final Draf',
-                        "Kabag telah mengunggah draf surat baru dan menunggu persetujuan akhir.",
-                        route('kabiro.review-final.index')
+                if ($kasubtim) {
+                    $kasubtim->notify(new \App\Notifications\SuratNotification(
+                        'Review Tingkat 1',
+                        "Kabag telah mengunggah draf surat baru dan meminta review teknis Anda.",
+                        route('kasubtim.review.index')
                     ));
                 }
             });
@@ -178,14 +178,14 @@ class DrafSayaController extends Controller
                 'status' => 'menunggu_reviu' // Reset status
             ]);
 
-            $kabiro = \App\Models\User::where('role', 'kepala_biro')->first();
+            $kasubtim = \App\Models\User::where('role', 'kepala_sub_tim')->first();
 
-            // Buat Reviu Tingkat Final (Kabiro)
+            // Buat Reviu Tingkat 1 (Kasubtim)
             \App\Models\ReviuSurat::create([
                 'draf_surat_id' => $drafSurat->id,
-                'tingkat'       => 'final',
+                'tingkat'       => '1',
                 'status' => 'menunggu',
-                'reviewer_id' => $kabiro ? $kabiro->id : null
+                'reviewer_id' => $kasubtim ? $kasubtim->id : null
             ]);
         });
 
