@@ -4,7 +4,7 @@
             <i class="ph ph-arrow-left"></i> Kembali
         </a>
         <h2 class="text-2xl font-bold text-gray-900">Buat Draft Surat</h2>
-        <p class="text-gray-500 mt-1">Unggah draft surat untuk direview oleh Kasubtim</p>
+        <p class="text-gray-500 mt-1">Unggah draft surat untuk direview oleh Kabag</p>
     </div>
 
     @if ($errors->any())
@@ -92,7 +92,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">Catatan untuk Kasubtim</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Catatan untuk Kabag</label>
                     <textarea name="catatan" rows="3" class="w-full px-4 py-2 bg-white border border-gray-200 rounded-lg focus:ring-[#701a35] focus:border-[#701a35] shadow-sm text-sm" placeholder="Catatan tambahan..."></textarea>
                 </div>
 
@@ -114,7 +114,7 @@
 
                 <div class="pt-4 flex justify-end gap-4 border-t border-gray-100 pt-6">
                     <button type="button" onclick="submitDraft()" class="px-6 py-2.5 bg-[#701a35] text-white font-bold rounded-lg shadow-sm hover:bg-[#5b152b]" id="submitBtn">
-                        Ajukan ke Kasubtim
+                        Ajukan ke Kabag
                     </button>
                 </div>
             </form>
