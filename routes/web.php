@@ -97,7 +97,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/menunggu-kabiro/{id}', [\App\Http\Controllers\Kabag\ReviewController::class, 'showMenungguKabiro'])->name('menunggu-kabiro.show');
         Route::get('/buat-surat', [\App\Http\Controllers\Kabag\BuatSuratController::class, 'index'])->name('buat-surat.index');
         Route::get('draf-saya/template/{id}/download', [\App\Http\Controllers\Kabag\DrafSayaController::class, 'downloadTemplate'])->name('draf-saya.download-template');
-        Route::resource('draf-saya', \App\Http\Controllers\Kabag\DrafSayaController::class);
+        Route::resource('draf-saya', \App\Http\Controllers\Kabag\DrafSayaController::class)->parameters(['draf-saya' => 'drafSurat']);
     });
 
     // Kepala Sub Tim
@@ -110,7 +110,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/draft/{id}', [\App\Http\Controllers\Kasubtim\DraftSuratController::class, 'show'])->name('draft.show');
         Route::get('/buat-surat', [\App\Http\Controllers\Kasubtim\BuatSuratController::class, 'index'])->name('buat-surat.index');
         Route::get('draf-saya/template/{id}/download', [\App\Http\Controllers\Kasubtim\DrafSayaController::class, 'downloadTemplate'])->name('draf-saya.download-template');
-        Route::resource('draf-saya', \App\Http\Controllers\Kasubtim\DrafSayaController::class);
+        Route::resource('draf-saya', \App\Http\Controllers\Kasubtim\DrafSayaController::class)->parameters(['draf-saya' => 'drafSurat']);
         Route::resource('review', \App\Http\Controllers\Kasubtim\ReviewController::class);
         Route::get('/riwayat', [\App\Http\Controllers\Kasubtim\RiwayatController::class, 'index'])->name('riwayat.index');
     });
